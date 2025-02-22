@@ -2,18 +2,21 @@ import cv2
 import os
 import string
 
-img = cv2.imread("mypic.png") # Replace with the correct image path
+
+img = cv2.imread("mypic.png") # Replace with the correct image path: to read the image
 
 msg = input("Enter secret message:")
 password = input("Enter a passcode:")
 
-d = {}
-c = {}
+d = {} # maps characters to ascii values
+c = {} # maps ascii values to charcaters
 
 for i in range(255):
     d[chr(i)] = i
     c[i] = chr(i)
 
+
+# n,m,z are used to update the pixels
 m = 0
 n = 0
 z = 0
