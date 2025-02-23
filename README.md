@@ -22,7 +22,7 @@ pip install opencv-python numpy pillow tkinter
 ### Running the Application
 Clone the repository and navigate to the project directory:
 ```bash
-git clone [https://github.com/yourusername/StegaPy.git](https://github.com/Lasya1905/Steganography.git)
+git clone https://github.com/Lasya1905/Steganography.git
 cd StegaPy
 ```
 Run the Python script:
