@@ -1,4 +1,4 @@
-# StegaPy - Image-Based Steganography Tool
+# StegaPyX - Image-Based Steganography Tool
 
 StegaPy is a simple yet effective steganography tool that allows users to hide and retrieve secret messages inside images using Least Significant Bit (LSB) encoding. The tool is built using Python and provides a graphical user interface (GUI) using Tkinter.
 
