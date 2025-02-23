@@ -27,7 +27,7 @@ cd StegaPy
 ```
 Run the Python script:
 ```bash
-python stegap.py
+python stegapy.py
 ```
 
 ### Encrypting a Message
