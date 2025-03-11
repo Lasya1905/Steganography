@@ -4,16 +4,23 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
 
+## OpenCV is used for loading, modifying and saving image 
+## PIL is used for resizing and displaying image in Tkinter
+
+
 def open_image():
     global img, img_path, tk_image
+    
+    # user selects image using filedialog.askopenfilename()
     img_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg")])
     if img_path:
+        # if image path exists, image is read.
         img = cv2.imread(img_path)
         pil_img = Image.open(img_path)
         pil_img = pil_img.resize((250, 250))
-        tk_image = ImageTk.PhotoImage(pil_img)
-        img_label.config(image=tk_image)
-        img_label.image = tk_image
+        tk_image = ImageTk.PhotoImage(pil_img) # resized version of window is displayed
+        img_label.config(image=tk_image) # used to update img_label widget
+        img_label.image = tk_image # prevents GC from removing it
 
 def encrypt_message():
     global img
@@ -67,24 +74,28 @@ def decrypt_message():
     
     messagebox.showinfo("Decrypted Message", f"Message: {decrypted_msg}")
 
-root = tk.Tk()
+root = tk.Tk() # to create main window, we use Tk() class
 root.title("Steganography Tool")
 root.geometry("400x500")
 
 img_label = tk.Label(root, text="No Image Selected", width=30, height=10)
+# refers to display box. master->root(parameter to represent parent window)
+
 img_label.pack()
 
 tk.Button(root, text="Select Image", command=open_image).pack()
+# master -> root
 
 tk.Label(root, text="Enter Message:").pack()
-msg_entry = tk.Entry(root, width=40)
+msg_entry = tk.Entry(root, width=40) # Single line text input
 msg_entry.pack()
 
 tk.Label(root, text="Enter Password:").pack()
-pass_entry = tk.Entry(root, width=40, show="*")
+pass_entry = tk.Entry(root, width=40, show="*") # Single line text input
 pass_entry.pack()
 
 tk.Button(root, text="Encrypt", command=encrypt_message).pack()
 tk.Button(root, text="Decrypt", command=decrypt_message).pack()
 
-root.mainloop()
+root.mainloop() # method used to run the application once it is ready. 
+                # creates infinite loop.
